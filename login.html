@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Login - Master E Waste Collections</title>
+  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="index.css">
+  <style>
+    :root {
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --accent-green: #31df88;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      margin: 0;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+    }
+
+    .navbar {
+      background-color: var(--bg-secondary);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+    }
+
+    .login-container {
+      background: radial-gradient(circle at top right, rgba(49, 223, 136, 0.08), transparent 400px), var(--bg-primary);
+      min-height: calc(100vh - 120px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .login-box {
+      background: var(--bg-secondary);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      max-width: 400px;
+      width: 100%;
+      box-sizing: border-box;
+      border-top: 4px solid var(--accent-green);
+    }
+  </style>
+  <script>
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    if (savedTheme === 'light') {
+        document.body.classList.add('light-theme');
+    }
+  </script>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="logo.png" alt="Master E Waste Collections" width="150px" height="100px"></a>
+    </div>
+  </header>
+
+  <div class="login-container">
+    <div class="login-box">
+      <h2 id="auth-title">User Login</h2>
+      <p id="auth-desc">Welcome back! Please enter your details to access your account and manage your pickups.</p>
+      <form id="auth-form">
+        <div id="signup-fields" style="display: none;">
+          <input type="text" id="user-name" placeholder="Full Name">
+          <select id="user-role" class="btn-user" style="background: white; color: #333; border: 1px solid #ccc; margin-bottom: 15px;">
+            <option value="user">Sign up as Customer</option>
+            <option value="driver">Sign up as Driver</option>
+          </select>
+          <div id="driver-fields" style="display: none; margin-bottom: 15px;">
+            <label for="vehicle-type">Vehicle Type</label>
+            <select id="vehicle-type" class="btn-user" style="background: white; color: #333; border: 1px solid #ccc;">
+              <option value="Boda boda">Boda boda</option>
+              <option value="Tuku Tuku">Tuku Tuku</option>
+              <option value="Pickup">Pickup</option>
+              <option value="Truck">Truck</option>
+            </select>
+          </div>
+        </div>
+        <input type="email" id="user-email" placeholder="Email" required>
+        <input type="password" id="user-password" placeholder="Password" required>
+        <div id="forgot-fields" style="display: none; margin-bottom: 15px;">
+          <input type="password" id="user-confirm-password" placeholder="Confirm New Password">
+        </div>
+        <button type="submit" class="btn-user" id="auth-submit">Login</button>
+      </form>
+      <div class="auth-toggle">
+        <p id="toggle-container">Don't have an account? <a href="#" id="toggle-link">Sign Up</a></p>
+        <p id="forgot-toggle-container" style="margin-top: 10px;"><a href="#" id="forgot-link" style="color: #888; font-size: 0.9rem;">Forgot Password?</a></p>
+      </div>
+      <div id="auth-error" class="error-message"></div>
+    </div>
+  </div>
+  <script src="login.js"></script>
+</body>
+</html>
