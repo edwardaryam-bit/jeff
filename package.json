@@ -1,0 +1,15 @@
+{
+  "name": "ewaste-collections",
+  "version": "1.0.0",
+  "description": "E-waste pickup management backend converted to Node.js and MongoDB.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "migrate": "node migrate.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.18.2",
+    "mongodb": "^5.9.2"
+  }
+}
