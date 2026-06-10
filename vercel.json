@@ -4,18 +4,6 @@
     {
       "src": "server.js",
       "use": "@vercel/node"
-    },
-    {
-      "src": "*.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "*.css",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "*.js",
-      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -24,14 +12,24 @@
       "dest": "server.js"
     },
     {
+      "src": "/admin",
+      "dest": "server.js"
+    },
+    {
+      "src": "/pickups",
+      "dest": "server.js"
+    },
+    {
+      "src": "/driver",
+      "dest": "server.js"
+    },
+    {
+      "src": "/(.*\\.(html|css|js|png|webp|jpg|jpeg|gif|svg|ico))",
+      "dest": "server.js"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/"
+      "dest": "server.js"
     }
-  ],
-  "env": {
-    "MONGO_URI": "@mongo_uri",
-    "MONGO_ORG_ID": "@mongo_org_id",
-    "MONGO_DB": "@mongo_db",
-    "ADMIN_PASSWORD": "@admin_password"
-  }
+  ]
 }
